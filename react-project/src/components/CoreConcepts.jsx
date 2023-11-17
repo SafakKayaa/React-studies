@@ -1,9 +1,15 @@
-export default function CoreConcepts(props) {
-    return (
-      <li>
-        <img src={props.image} alt={props.title} />
-        <h3>{props.title}</h3>
-        <p>{props.description}</p>
-      </li>
-    );
-  }
+import CoreConcept from "./CoreConcept.jsx";
+import { CORE_CONCEPTS } from "../data.js";
+
+export default function CoreConcepts() {
+  return (
+    <section id="core-concepts">
+      <h2>Time to get started!</h2>
+      <ul>
+        {CORE_CONCEPTS.map((conceptItem) => (
+          <CoreConcept key={conceptItem.title} {...conceptItem} />
+        ))}
+      </ul>
+    </section>
+  );
+}
